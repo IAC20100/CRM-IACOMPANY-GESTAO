@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #000000;
+  --color-primary-hover: #1A1A1A;
+  --color-silver: #C0C0C0;
+  --color-silver-dark: #8E8E8E;
+  --color-surface: #F4F4F5;
+  --color-card: #FFFFFF;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    @apply bg-surface text-zinc-900 font-sans antialiased transition-colors duration-300;
+  }
+  
+  .dark body {
+    @apply bg-zinc-950 text-zinc-100;
+  }
+}
+
+@layer components {
+  .card-shadow {
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  .dark .card-shadow {
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .btn-primary {
+    @apply bg-black hover:bg-zinc-800 text-white font-black text-xs uppercase tracking-widest py-4 px-8 rounded-2xl transition-all active:scale-95 flex items-center justify-center gap-2 shadow-xl shadow-black/10 border border-white/10;
+  }
+  
+  .dark .btn-primary {
+    @apply bg-white text-black hover:bg-zinc-200 shadow-white/5 border-black/10;
+  }
+  
+  .badge {
+    @apply px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-wider border;
+  }
+  
+  .premium-gradient {
+    background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+  }
+  
+  .silver-gradient {
+    background: linear-gradient(135deg, #F4F4F5 0%, #E4E4E7 100%);
+  }
+}
